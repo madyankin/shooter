@@ -1,8 +1,9 @@
-host:           "yourhost.com"
-user:           "username"
-local_path:     "/Users/username/Desktop"
-remote_path:    "/host/path/to/files"
-url:            "http://yourhost.com/files"
-sound:          "sound/notify.m4r"
-play_sound:     true
-remove_source:  true
+host:               "yourhost.com"
+user:               "username"
+local_path:         "/Users/username/Desktop"
+remote_path:        "/host/path/to/files"
+url:                "http://yourhost.com/files"
+sound:              "sound/notify.m4r"
+play_sound:         true
+show_notification:  true
+remove_source:      true

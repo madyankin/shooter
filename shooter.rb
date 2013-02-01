@@ -12,7 +12,7 @@ class Shooter
   end
 
   def notify(url)
-    TerminalNotifier.notify(url, title: "File uploaded")
+    TerminalNotifier.notify(url, title: "File uploaded") if @config[:show_notification]
     if @config[:play_sound]
       sound = File.expand_path(@config[:sound], File.dirname(__FILE__))
       `afplay '#{sound}'` 
