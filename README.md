@@ -4,14 +4,14 @@ This is an OS X screenshots autouploader script, which uploads taken shots to yo
 
 ## Using
 
-  git clone https://github.com/OutPunk/shooter.git
-  cd shooter
-  bundle # if you haven't bundler installed, then you should execute "gem install bundler" first
-  cp config.yml.sample config.yml
+    git clone https://github.com/OutPunk/shooter.git
+    cd shooter
+    bundle # if you haven't bundler installed, then you should execute "gem install bundler" first
+    cp config.yml.sample config.yml
 
 Then you have to edit config.yml, set up your preferences and launch shooter:
   
-  ./shooter.rb
+    ./shooter.rb
 
 
 ## TODO
