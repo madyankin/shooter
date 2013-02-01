@@ -5,10 +5,10 @@ require "rb-fsevent"
 require 'terminal-notifier'
 require "yaml"
 
-class FileUploader
+class Shooter
   def initialize(config)
-    @config       = config
-    @entries      = Dir.entries(@config[:local_path])
+    @config   = config
+    @entries  = Dir.entries(@config[:local_path])
   end
 
   def notify(url)
@@ -53,4 +53,4 @@ config = YAML.load_file("#{File.expand_path(File.dirname(__FILE__))}/config.yml"
 config = config.inject({}) { |hash,(k,v)| hash[k.to_sym] = v; hash }
 
 Process.daemon
-FileUploader.new(config).run
+Shooter.new(config).run
