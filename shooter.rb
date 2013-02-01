@@ -6,16 +6,17 @@ require 'terminal-notifier'
 require "yaml"
 
 class Shooter
-  def initialize(config)
+  def initialize(path, config)
     @config   = config
     @entries  = Dir.entries(@config[:local_path])
+    @path     = path
   end
 
   def notify(url)
     TerminalNotifier.notify(url, title: "File uploaded") if @config[:show_notification]
     if @config[:play_sound]
-      sound = File.expand_path(@config[:sound], File.dirname(__FILE__))
-      `afplay '#{sound}'` 
+      sound = File.expand_path(@config[:sound], @path)
+      `afplay '#{sound}'`
     end
   end
 
@@ -49,8 +50,9 @@ class Shooter
   end
 end
 
-config = YAML.load_file("#{File.expand_path(File.dirname(__FILE__))}/config.yml")
+shooter_path = File.dirname(File.expand_path(__FILE__))
+config = YAML.load_file("#{shooter_path}/config.yml")
 config = config.inject({}) { |hash,(k,v)| hash[k.to_sym] = v; hash }
 
 Process.daemon
-Shooter.new(config).run
+Shooter.new(shooter_path, config).run
